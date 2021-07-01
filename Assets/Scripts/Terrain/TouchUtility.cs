@@ -1,10 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public static class TouchUtility 
 {
-    public static bool Enabled = true;
     public static int TouchCount
     {
         get 

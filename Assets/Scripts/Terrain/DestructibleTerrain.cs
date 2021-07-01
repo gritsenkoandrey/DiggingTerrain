@@ -42,7 +42,7 @@ public class DestructibleTerrain : MonoBehaviour
         Initialize();
     }
 
-    public void Initialize()
+    private void Initialize()
     {
         blocks = new DestructibleBlock[resolutionX * resolutionY];
 
@@ -151,7 +151,6 @@ public class DestructibleTerrain : MonoBehaviour
 
                     block.UpdateGeometryWithMoreVertices(solutions, width, height, depth);
                 }
-                
             }
         }      
     }

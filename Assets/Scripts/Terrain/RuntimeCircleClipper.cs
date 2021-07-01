@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 using Vector2i = ClipperLib.IntPoint;
@@ -128,17 +126,12 @@ public class RuntimeCircleClipper : MonoBehaviour, IClip
         radius = diameter / 2f;
     }
 
-    void Start()
-    {
-        
-    }
-
-    void Update()
+    private void Update()
     {
         UpdateTouch();
     }
 
-    void UpdateTouch()
+    private void UpdateTouch()
     {
         if (TouchUtility.TouchCount > 0)
         {
@@ -174,7 +167,7 @@ public class RuntimeCircleClipper : MonoBehaviour, IClip
         }
     }
 
-    void BuildVertices(Vector2 center)
+    private void BuildVertices(Vector2 center)
     {
         vertices.Clear();
         for (int i = 0; i < segmentCount; i++)
@@ -187,7 +180,7 @@ public class RuntimeCircleClipper : MonoBehaviour, IClip
         }
     }
 
-    void BuildVertices(Vector2 begin, Vector2 end)
+    private void BuildVertices(Vector2 begin, Vector2 end)
     {
         vertices.Clear();
         int halfSegmentCount = segmentCount / 2;

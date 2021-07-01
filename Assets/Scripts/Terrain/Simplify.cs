@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using System.Collections.Generic;
 
 using int64 = System.Int64;
 using Vector2i = ClipperLib.IntPoint;
@@ -14,7 +12,7 @@ public static class BlockSimplification
 
     public static Vector2i currentUpperPoint;
 
-    public static int GetMask(Vector2i p)
+    private static int GetMask(Vector2i p)
     {
         int mask = 0;
 
@@ -33,7 +31,7 @@ public static class BlockSimplification
         return mask;
     }
 
-    public static bool PointNotLieOnEdges(Vector2i p)
+    private static bool PointNotLieOnEdges(Vector2i p)
     {
         //return p.x != currentLowerPoint.x && p.x != currentUpperPoint.x
         //    && p.y != currentLowerPoint.y && p.y != currentUpperPoint.y;
@@ -42,7 +40,7 @@ public static class BlockSimplification
             && currentUpperPoint.x - p.x - epsilon > 0 && currentUpperPoint.y - p.y - epsilon > 0;
     }
 
-    public static void RamerDouglasPeucker(List<Vector2i> inPolygon, int[] mask, int a, int b, ref int removeCount)
+    private static void RamerDouglasPeucker(List<Vector2i> inPolygon, int[] mask, int a, int b, ref int removeCount)
     {
         if (b - a < 2)
             return;

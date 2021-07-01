@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 using int64 = System.Int64;
@@ -31,12 +30,8 @@ public static class Triangulate
             while (it >= 0)
             {
                 it--;
-                bool validTriangle = true;
-
-                if (!TriangleIsClockwise(vertices[a], vertices[b], vertices[c]))
-                {
-                    validTriangle = false;
-                }
+                
+                bool validTriangle = TriangleIsClockwise(vertices[a], vertices[b], vertices[c]);
 
                 if (validTriangle)
                 {
@@ -90,7 +85,7 @@ public static class Triangulate
         }
     }
 
-    public static bool TriangleContainsPoint(Vector2f A, Vector2f B, Vector2f C, Vector2f P)
+    private static bool TriangleContainsPoint(Vector2f A, Vector2f B, Vector2f C, Vector2f P)
     {
         float ax, ay, bx, by, cx, cy, apx, apy, bpx, bpy, cpx, cpy;
 
@@ -108,7 +103,7 @@ public static class Triangulate
         return (C1 > 0f && C2 > 0f && C3 > 0f) || (C1 < 0f && C2 < 0f && C3 < 0f);
     }
 
-    public static bool TriangleIsClockwise(Vector2f A, Vector2f B, Vector2f C)
+    private static bool TriangleIsClockwise(Vector2f A, Vector2f B, Vector2f C)
     {
         return (B.x - A.x) * (C.y - A.y) - (B.y - A.y) * (C.x - A.x) <= 0f;
     }
